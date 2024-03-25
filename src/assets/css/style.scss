@@ -3,22 +3,26 @@ $font-path: '../../../public/assets/fonts';
 $orange: #fe5f1e;
 
 @font-face {
+  font-family: 'Nunito Regular';
+
   src: url('#{$font-path}/Nunito-Regular.ttf') format('woff2');
-  font-family: "Nunito Regular";
 }
 
 @font-face {
+  font-family: 'Nunito Bold';
+
   src: url('#{$font-path}/Nunito-Bold.ttf') format('woff2');
-  font-family: "Nunito Bold";
 }
 
 
 body {
+  font-family: 'Nunito Regular', sans-serif;
+
   background-color: #f8df90;
-  font-family: "Nunito Regular", sans-serif;
 }
 
-p, ul {
+p,
+ul {
   margin: 0;
   padding: 0;
 }
@@ -28,25 +32,28 @@ ul {
 }
 
 a {
+  font-family: 'Nunito Regular', sans-serif;
+
   text-decoration: none;
-  font-family: "Nunito Regular", sans-serif;
 }
 
 .wrapper {
-  height: 100%;
   width: calc(100vw - 100px);
-  background-color: #fff;
-  border-radius: 12px;
+  height: 100%;
   margin: 48px auto 0;
+
+  border-radius: 12px;
+  background-color: #fff;
 }
 
 .container {
-  width: 92%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 0
+
+  width: 92%;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
 
@@ -65,77 +72,88 @@ a {
   }
 
   &__title {
+    font-family: 'Nunito Bold', sans-serif;
     font-size: 24px;
-    font-family: "Nunito Bold", sans-serif;
+
     text-transform: uppercase;
   }
 
   &__description {
-    color: #7b7b7b;
     white-space: nowrap;
+
+    color: #7b7b7b;
   }
 }
 
 .search {
   position: relative;
+
   width: 90%;
   min-width: 120px;
   max-width: 500px;
   margin: {
-    left: 32px;
     right: 100px;
-  }
+    left: 32px;
+  };
+
   text-align: center;
 
   &__icon {
     position: absolute;
     top: 10px;
-    margin-left: 12px;
+
     width: 20px;
-    opacity: 50%;
+    margin-left: 12px;
+
     cursor: pointer;
+
+    opacity: 50%;
   }
 
   &__input {
     width: 100%;
     padding: 12px 36px;
+
+    border-color: rgba(0, 0, 0, .25);
     border-radius: 12px;
-    border-color: rgba(0, 0, 0, 0.25);
 
     &::placeholder {
-      font-family: "Nunito Regular", sans-serif;
+      font-family: 'Nunito Regular', sans-serif;
+
       letter-spacing: 1px;
     }
   }
-
 }
 
 .cart {
   display: flex;
+
   padding: 12px 25px;
-  background-color: $orange;
-  border-radius: 32px;
-  color: #fff;
-  transition: linear 200ms;
+
   cursor: pointer;
+  transition: linear 200ms;
+
+  color: #fff;
+  border-radius: 32px;
+  background-color: $orange;
 
   &:hover {
     background-color: darken($orange, 10%);
   }
 
   &__total {
-    white-space: nowrap;
     align-self: center;
 
+    white-space: nowrap;
     letter-spacing: 1px;
-
   }
 
   &__delimiter {
-    background-color: rgba(255, 255, 255, 0.3);
-    height: 25px;
     width: 1px;
+    height: 25px;
     margin: 0 14px;
+
+    background-color: rgba(255, 255, 255, .3);
   }
 
   &__info {
@@ -146,8 +164,8 @@ a {
   &__icon {
     width: 18px;
     height: 18px;
-    margin-bottom: 2px;
     margin-right: 4px;
+    margin-bottom: 2px;
   }
 }
 
@@ -157,6 +175,7 @@ a {
 
 .category {
   overflow-x: auto;
+
   margin-right: 12px;
 
   &__list {
@@ -164,16 +183,18 @@ a {
   }
 
   &__item {
-    padding: 12px 30px;
     margin-right: 12px;
-    background-color: #eeeeee;
-    border-radius: 24px;
+    padding: 12px 30px;
+
     cursor: pointer;
     transition: linear 200ms;
 
+    border-radius: 24px;
+    background-color: #eee;
   }
 
-  &__item.active, &__item:hover {
+  &__item.active,
+  &__item:hover {
     background-color: #282828;
 
     a {
@@ -199,10 +220,11 @@ a {
   }
 
   &__criteria {
-    color: $orange;
-    border-bottom: 1px dashed $orange;
     cursor: pointer;
     transition: linear 200ms;
+
+    color: $orange;
+    border-bottom: 1px dashed $orange;
 
     &:hover {
       color: darken($orange, 10%);
@@ -215,29 +237,33 @@ a {
 .main {
   display: flex;
   flex-direction: column;
+
   width: 100%;
 
   &__title {
-    font-family: "Nunito Bold", sans-serif;
+    font-family: 'Nunito Bold', sans-serif;
     font-size: 38px;
   }
 
   &__error {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+
     margin: 100px;
 
 
     &__title {
+      font-family: 'Nunito Bold', sans-serif;
       font-size: 32px;
-      font-family: "Nunito Bold", sans-serif;
     }
 
     &__description {
-      margin-top: 8px;
-      text-align: center;
       font-size: 20px;
+
+      margin-top: 8px;
+
+      text-align: center;
     }
   }
 }
@@ -254,24 +280,28 @@ a {
 
   &__item {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
     width: 25px;
     height: 25px;
-    padding: 12px;
-    border-radius: 50%;
-    border: 1px solid $orange;
-    text-align: center;
     margin-right: 12px;
+    padding: 12px;
+
     cursor: pointer;
     transition: linear 200ms;
+    text-align: center;
+
+    border: 1px solid $orange;
+    border-radius: 50%;
 
     a {
       color: $orange;
     }
   }
 
-  &__item.active, &__item:hover {
+  &__item.active,
+  &__item:hover {
     background-color: $orange;
 
     a {
