@@ -6,5 +6,80 @@
 </head>
 <body>
 <div id="root"></div>
+
+<div class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img class="logo__image" src="./assets/svg/pizza-logo.svg" alt="">
+                <div class="logo__name">
+                    <p class="logo__title">React Pizza</p>
+                    <p class="logo__description">самая вкусная пицца во вселенной</p>
+                </div>
+            </div>
+            <div class="search">
+                <label class="search__label" for="search"></label>
+                <img class="search__icon" src="./assets/svg/search.svg" alt="">
+                <input class="search__input" id="search" type="text" placeholder="Поиск пиццы...">
+            </div>
+            <div class="cart">
+                <div class="cart__total">
+                    <b>1240</b> ₽
+                </div>
+                <span class="cart__delimiter"></span>
+                <div class="cart__info">
+                    <img class="cart__icon" src="./assets/svg/cart.svg" alt="">
+                    <p class="cart__quantity">3</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="category">
+            <ul class="category__list">
+                <li class="category__item active"><a href="#">Все</a></li>
+                <li class="category__item"><a href="#">Мясные</a></li>
+                <li class="category__item"><a href="#">Сырные</a></li>
+                <li class="category__item"><a href="#">Острые</a></li>
+                <li class="category__item"><a href="#">Гриль</a></li>
+                <li class="category__item"><a href="#">Вегетарианские</a></li>
+            </ul>
+        </div>
+        <div class="sort">
+            <img class="sort__icon" src="assets/svg/arrow-top.svg" alt="">
+            <p class="sort__text">Сортировка по:</p>
+            <span class="sort__criteria">популярности</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <main class="main">
+            <p class="main__title">Все пиццы</p>
+            <div class="main__error">
+                <p class="main__error__title">Произошла ошибка 😕</p>
+                <p class="main__error__description">Можете ударить разработчика по рукам.<br>
+                Или написать в тех. поддержку. Только её нет :)
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <div class="container">
+        <div class="pagination">
+            <ul class="pagination__list">
+                <li class="pagination__item"><a href="#"><</a></li>
+                <li class="pagination__item"><a href="#">1</a></li>
+                <li class="pagination__item active"><a href="#">2</a></li>
+                <li class="pagination__item"><a href="#">3</a></li>
+                <li class="pagination__item"><a href="#">4</a></li>
+                <li class="pagination__item"><a href="#">5</a></li>
+                <li class="pagination__item"><a href="#">></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
