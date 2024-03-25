@@ -172,11 +172,13 @@ a {
 
 // FILTERS
 
-
 .category {
   overflow-x: auto;
 
   margin-right: 12px;
+  padding-bottom: 12px;
+
+  scrollbar-color: #000 #eee;
 
   &__list {
     display: flex;
@@ -217,6 +219,8 @@ a {
 
   &__text {
     margin-right: 8px;
+
+    white-space: nowrap;
   }
 
   &__criteria {
