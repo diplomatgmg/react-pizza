@@ -16,6 +16,12 @@ $background-secondary: #fafafa;
   src: url('#{$font-path}/Nunito-Bold.ttf') format('woff2');
 }
 
+@font-face {
+  font-family: 'Nunito Black';
+
+  src: url('#{$font-path}/Nunito-Black.ttf') format('woff2');
+}
+
 
 body {
   font-family: 'Nunito Regular', sans-serif;
@@ -40,7 +46,7 @@ a {
 }
 
 .wrapper {
-  width: calc(100vw - 100px);
+  width: calc(100vw - 200px);
   height: 100%;
   margin: 48px auto 0;
 
@@ -326,15 +332,28 @@ a {
     flex-direction: column;
 
     margin: 24px;
+    padding: 12px;
+
+    transition: linear 100ms;
+
+    border-radius: 12px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, .05);
+
+    &:hover {
+      box-shadow: 0 0 10px 10px rgba(0, 0, 0, .12);
+    }
   }
 
   &__image {
     width: 300px;
+    margin-bottom: 12px;
   }
 
   &__name {
-    font-family: 'Nunito Bold', sans-serif;
-    font-size: 20px;
+    font-family: 'Nunito Black', sans-serif;
+    font-size: 22px;
+
+    margin-bottom: 32px;
   }
 
   &__options {
