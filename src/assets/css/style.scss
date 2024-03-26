@@ -1,4 +1,4 @@
-$font-path: '../../../public/assets/fonts';
+$font-path: '../../assets/fonts';
 
 $orange: #fe5f1e;
 $background: #eee;
@@ -249,7 +249,7 @@ a {
     }
   }
 
-  &__popup {
+  &__list {
     position: absolute;
     top: 40px;
     left: 110px;
