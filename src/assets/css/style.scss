@@ -213,8 +213,9 @@ a {
 
 
 .sort {
-  display: flex;
   position: relative;
+
+  display: flex;
 
   &__icon {
     margin-right: 8px;
@@ -239,34 +240,40 @@ a {
   }
 
   &__popup {
-    display: flex;
-    flex-direction: column;
     position: absolute;
-    background-color: $background-secondary;
-    border-radius: 8px;
     top: 40px;
     left: 80px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 8px;
+    background-color: $background-secondary;
   }
 
   &__item {
-    white-space: nowrap;
-    cursor: pointer;
     font-size: 12px;
+
     padding: 12px 24px;
+
+    cursor: pointer;
     transition: linear 100ms;
+    white-space: nowrap;
+
     border-radius: 8px;
 
 
     &.active {
       font-size: 14px;
-      color: $orange;
       font-weight: bold;
+
+      color: $orange;
     }
 
-    &:hover, &.active {
-      background-color: rgba(254, 95, 30, 0.05);
+    &:hover,
+    &.active {
+      background-color: rgba(254, 95, 30, .05);
     }
-
   }
 }
 
@@ -302,6 +309,142 @@ a {
       margin-top: 8px;
 
       text-align: center;
+    }
+  }
+}
+
+.pizza {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 24px;
+  }
+
+  &__image {
+    width: 300px;
+  }
+
+  &__name {
+    font-family: 'Nunito Bold', sans-serif;
+    font-size: 20px;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    padding: 8px;
+
+    border-radius: 12px;
+    background-color: $background;
+
+    gap: 8px;
+  }
+
+  &__crust,
+  &__size {
+    display: flex;
+    align-items: center;
+
+    height: 50%;
+
+    white-space: nowrap;
+
+    gap: 8px;
+
+
+    li {
+      width: 100%;
+      padding: 12px 24px;
+
+      cursor: pointer;
+      transition: linear 100ms;
+      text-align: center;
+
+      border-radius: 8px;
+
+
+      &.active {
+        background-color: #fff;
+      }
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  &__price {
+    font-family: 'Nunito Bold', sans-serif;
+    font-size: 22px;
+
+    margin-left: 12px;
+  }
+
+  &__cart {
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    margin-right: 12px;
+    padding: 12px 24px;
+
+    cursor: pointer;
+    transition: linear 100ms;
+
+    color: $orange;
+    border: 1px solid $orange;
+    border-radius: 24px;
+
+    gap: 12px;
+
+
+    & span {
+      font-weight: normal;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 24px;
+      height: 24px;
+
+      color: #fff;
+      border-radius: 50%;
+      background-color: $orange;
+    }
+  }
+
+  &__cart:hover {
+    color: #fff;
+    background-color: $orange;
+
+    svg path {
+      fill: white;
+    }
+
+    & span {
+      color: $orange;
+      background-color: #fff;
     }
   }
 }
