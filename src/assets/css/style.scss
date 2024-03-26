@@ -1,6 +1,8 @@
 $font-path: '../../../public/assets/fonts';
 
 $orange: #fe5f1e;
+$background: #eee;
+$background-secondary: #fafafa;
 
 @font-face {
   font-family: 'Nunito Regular';
@@ -178,7 +180,7 @@ a {
   margin-right: 12px;
   padding-bottom: 12px;
 
-  scrollbar-color: #000 #eee;
+  scrollbar-color: #000 $background;
 
   &__list {
     display: flex;
@@ -192,7 +194,7 @@ a {
     transition: linear 200ms;
 
     border-radius: 24px;
-    background-color: #eee;
+    background-color: $background;
   }
 
   &__item.active,
@@ -212,6 +214,7 @@ a {
 
 .sort {
   display: flex;
+  position: relative;
 
   &__icon {
     margin-right: 8px;
@@ -233,6 +236,37 @@ a {
     &:hover {
       color: darken($orange, 10%);
     }
+  }
+
+  &__popup {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: $background-secondary;
+    border-radius: 8px;
+    top: 40px;
+    left: 80px;
+  }
+
+  &__item {
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 12px 24px;
+    transition: linear 100ms;
+    border-radius: 8px;
+
+
+    &.active {
+      font-size: 14px;
+      color: $orange;
+      font-weight: bold;
+    }
+
+    &:hover, &.active {
+      background-color: rgba(254, 95, 30, 0.05);
+    }
+
   }
 }
 
