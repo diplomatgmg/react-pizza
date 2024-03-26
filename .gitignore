@@ -27,3 +27,6 @@ yarn-error.log*
 # IDE
 /.idea
 .vercel
+
+# DB
+*.sqlite3
