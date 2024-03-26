@@ -1,5 +1,5 @@
 import React, { type ReactElement } from 'react'
-import PizzaList from '../Pizza/PizzaList'
+import PizzaList from './Pizza/PizzaList'
 import Error from './Error'
 
 const Main = (): ReactElement => {

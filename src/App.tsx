@@ -1,7 +1,7 @@
 import React from 'react'
 import './assets/css/style.scss'
 import Header from './components/Header/Header'
-import Category from './components/Category'
+import Category from './components/Category/Category'
 import Sort from './components/Sort/Sort'
 import Main from './components/Main/Main'
 import Pagination from './components/Pagination/Pagination'

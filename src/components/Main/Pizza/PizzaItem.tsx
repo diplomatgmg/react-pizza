@@ -1,5 +1,5 @@
 import React, { type ReactElement } from 'react'
-import PizzaPng from '../../assets/img/pizza.jpg'
+import PizzaPng from '../../../assets/img/pizza.jpg'
 
 const PizzaItem = (): ReactElement => {
   return (
