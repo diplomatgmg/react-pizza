@@ -1,14 +1,8 @@
-FROM python:3.12-alpine
+FROM python:3.12-slim
 
-RUN adduser -D user
+ENV PYTHONUNBUFFERED 1
 
-WORKDIR /backend
-COPY ./ /backend
+WORKDIR /code/backend
 
-EXPOSE 8000
-
-RUN apk add postgresql-client build-base postgresql-dev
-
+COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
-
-USER user

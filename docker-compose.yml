@@ -1,11 +1,11 @@
 services:
   backend:
-    build:
-      context:
-        ./backend
+    build: ./backend
+    volumes:
+      - ./backend:/code/backend
     ports:
       - "8000:8000"
-    command: sh -c "sleep 3 && python manage.py runserver 0.0.0.0:8000"
+    command: "./wait-for-it.sh database:5432 -- python manage.py runserver 0.0.0.0:8000"
     environment:
       - DB_HOST=database
       - DB_NAME=dbname
@@ -17,11 +17,15 @@ services:
   frontend:
     build:
       context: ./frontend
+    volumes:
+      - ./frontend:/code/frontend
+      - /code/frontend/node_modules
+    environment:
+      - WATCHPACK_POLLING=true
+
     ports:
       - "3000:3000"
-    command: sh -c "npm start"
-    depends_on:
-      - backend
+    command: "npm start"
 
   database:
     image: postgres:16.2-alpine
