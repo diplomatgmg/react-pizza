@@ -1,11 +1,17 @@
 services:
   backend:
     build:
-      context: .
+      context: ./backend
     ports:
       - "8000:8000"
-    volumes:
-      - ./backend:/backend
-
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    command: >
+      sh -c "npm start"
+
