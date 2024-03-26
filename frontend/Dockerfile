@@ -1,5 +1,7 @@
 FROM node:21.6.1-alpine
 
+RUN adduser -D user
+
 WORKDIR /frontend
 
 COPY package.json ./
@@ -11,3 +13,5 @@ COPY public ./public
 EXPOSE 3000
 
 RUN npm install
+
+USER user
