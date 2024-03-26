@@ -1,37 +1,29 @@
 import React from 'react'
 import './assets/css/style.scss'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Category from './components/Category'
 import Sort from './components/Sort/Sort'
-import Wrapper from './components/Wrapper'
-import PaginationList from './components/Pagination/PaginationList'
 import Main from './components/Main/Main'
+import Pagination from './components/Pagination/Pagination'
 
 const App = (): React.ReactElement => {
   return (
-    <Wrapper className={'wrapper'}>
+    <div className='wrapper'>
       <Header/>
 
-      <Wrapper className={'container'}>
-        <Wrapper className={'category'}>
-          <Category/>
-        </Wrapper>
+      <div className='container'>
+        <Category/>
+        <Sort/>
+      </div>
 
-        <Wrapper className={'sort'}>
-          <Sort/>
-        </Wrapper>
-      </Wrapper>
+      <div className='container'>
+        <Main/>
+      </div>
 
-      <Wrapper className={'container'}>
-        <Main />
-      </Wrapper>
-
-      <Wrapper className={'container'}>
-        <Wrapper className={'pagination'}>
-          <PaginationList/>
-        </Wrapper>
-      </Wrapper>
-    </Wrapper>
+      <div className='container'>
+        <Pagination />
+      </div>
+    </div>
   )
 }
 
