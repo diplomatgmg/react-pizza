@@ -1,6 +1,7 @@
 import React, { type ReactElement } from 'react'
 import PizzaItem from './PizzaItem'
 import { useGetPizzasQuery } from '../../../redux/api'
+import PizzaItemSkeleton from './PizzaItemSkeleton'
 
 const PizzaList = (): ReactElement => {
   const {
@@ -8,15 +9,10 @@ const PizzaList = (): ReactElement => {
     isLoading
   } = useGetPizzasQuery({})
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
   return (
     <ul className="pizza__list">
-      {
-        data.map((pizza) => <PizzaItem key={pizza.id} pizza={pizza}/>)
-      }
+      {isLoading && [...Array(6)].map((_, index) => <PizzaItemSkeleton key={index}/>)}
+      {!isLoading && data.map((pizza) => <PizzaItem key={pizza.id} pizza={pizza}/>)}
     </ul>
   )
 }

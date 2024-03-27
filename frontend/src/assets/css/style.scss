@@ -276,7 +276,6 @@ a {
     border-radius: 8px;
 
 
-
     &.active {
       font-size: 14px;
       font-weight: bold;
@@ -298,11 +297,6 @@ a {
   flex-direction: column;
 
   width: 100%;
-
-  &__title {
-    font-family: 'Nunito Bold', sans-serif;
-    font-size: 38px;
-  }
 
   &__error {
     display: flex;
@@ -368,7 +362,7 @@ a {
     display: flex;
     flex-direction: column;
 
-    height: 100%;
+    height: 100px;
     padding: 8px;
 
     border-radius: 12px;
@@ -473,6 +467,37 @@ a {
       color: $orange;
       background-color: #fff;
     }
+  }
+
+  &__skeleton &__image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-size: cover;
+  }
+
+  &__skeleton &__name {
+    width: 160px;
+    height: 26px;
+    border-radius: 8px;
+  }
+
+  &__skeleton &__options {
+    width: 300px;
+    border-radius: 12px;
+  }
+
+  &__skeleton &__price {
+    width: 83px;
+    height: 32px;
+    border-radius: 24px;
+  }
+
+  &__skeleton &__cart {
+    width: 135px;
+    height: 24px;
+    border: none;
+    border-radius: 24px;
   }
 }
 
