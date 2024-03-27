@@ -1,8 +1,8 @@
 FROM node:21.6.1-alpine
 
-WORKDIR /code/frontend
+WORKDIR /opt/project/frontend
 
-ENV PATH /code/frontend/node_modules/.bin:$PATH
+ENV PATH /opt/project/frontend/node_modules/.bin:$PATH
 
 COPY package.json ./
 COPY package-lock.json ./

@@ -2,7 +2,7 @@ services:
   backend:
     build: ./backend
     volumes:
-      - ./backend:/code/backend
+      - ./backend:/opt/project/backend
     ports:
       - "8000:8000"
     command: "./startup.sh"
@@ -18,8 +18,8 @@ services:
     build:
       context: ./frontend
     volumes:
-      - ./frontend:/code/frontend
-      - /code/frontend/node_modules
+      - ./frontend:/opt/project/frontend
+      - /opt/project/frontend/node_modules
     environment:
       - WATCHPACK_POLLING=true
 
