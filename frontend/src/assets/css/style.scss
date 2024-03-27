@@ -71,6 +71,7 @@ a {
 
 .header {
   overflow-x: auto;
+
   scrollbar-color: #000 $background;
 }
 
@@ -92,6 +93,7 @@ a {
 
   &__description {
     min-width: 33%;
+
     color: #7b7b7b;
   }
 }
@@ -335,13 +337,13 @@ a {
 
   &__item {
     display: flex;
+    overflow: hidden;
     align-items: center;
     flex-direction: column;
-    overflow: hidden;
-    padding: 12px 24px;
 
     width: 350px;
     margin: 24px 12px;
+    padding: 12px 24px;
 
     transition: linear 100ms;
 
@@ -356,30 +358,34 @@ a {
   &__image {
     max-width: 100%;
     max-height: 100%;
-    margin-left: 12px;
     margin-top: 12px;
+    margin-left: 12px;
   }
 
   &__name {
     font-family: 'Nunito Black', sans-serif;
     font-size: 2rem;
     font-weight: bold;
+
     margin: 12px 0;
+
     text-align: center;
   }
 
   &__ingredients {
-    margin: 12px 12px 24px;
-    text-align: center;
     font-size: 1rem;
+
+    margin: 12px 12px 24px;
+
+    text-align: center;
   }
 
   &__options {
     display: flex;
     flex-direction: column;
 
-    height: 100px;
     width: 100%;
+    height: 100px;
     padding: 8px;
 
     border-radius: 12px;
@@ -390,12 +396,13 @@ a {
 
   &__crust,
   &__size {
+    font-size: 1rem;
+
     display: flex;
     align-items: center;
-    font-size: 1rem;
-    height: 50%;
 
     width: 100%;
+    height: 50%;
 
     white-space: nowrap;
 
@@ -437,6 +444,7 @@ a {
     font-size: 1.5rem;
 
     margin-left: 12px;
+
     white-space: nowrap;
   }
 
@@ -492,6 +500,7 @@ a {
   &__skeleton &__image {
     width: 300px;
     height: 300px;
+
     border-radius: 50%;
     background-size: cover;
   }
@@ -499,23 +508,27 @@ a {
   &__skeleton &__name {
     width: 160px;
     height: 26px;
+
     border-radius: 8px;
   }
 
   &__skeleton &__options {
     width: 300px;
+
     border-radius: 12px;
   }
 
   &__skeleton &__price {
     width: 83px;
     height: 32px;
+
     border-radius: 24px;
   }
 
   &__skeleton &__cart {
     width: 135px;
     height: 24px;
+
     border: none;
     border-radius: 24px;
   }
