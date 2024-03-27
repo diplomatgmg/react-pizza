@@ -14,19 +14,6 @@ services:
     depends_on:
       - database
 
-  frontend:
-    build:
-      context: ./frontend
-    volumes:
-      - ./frontend:/opt/project/frontend
-      - /opt/project/frontend/node_modules
-    environment:
-      - WATCHPACK_POLLING=true
-
-    ports:
-      - "3000:3000"
-    command: "npm start"
-
   database:
     image: postgres:16.2-alpine
     environment:
