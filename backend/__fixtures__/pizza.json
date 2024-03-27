@@ -1,0 +1,42 @@
+[
+  {
+    "model": "pizza.pizza",
+    "pk": 1,
+    "fields": {
+      "name": "Сырная",
+      "price": 289,
+      "ingredients": [
+        16,
+        17,
+        4
+      ]
+    }
+  },
+  {
+    "model": "pizza.pizza",
+    "pk": 2,
+    "fields": {
+      "name": "Пепперони фреш",
+      "price": 289,
+      "ingredients": [
+        18,
+        19,
+        20,
+        21
+      ]
+    }
+  },
+  {
+    "model": "pizza.pizza",
+    "pk": 3,
+    "fields": {
+      "name": "Двойной цыпленок",
+      "price": 389,
+      "ingredients": [
+        1,
+        4,
+        17
+      ]
+    }
+  }
+]
