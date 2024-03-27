@@ -1,11 +1,16 @@
-import React, { type ReactElement } from 'react'
+import React, { type FC, type ReactElement } from 'react'
 import PizzaPng from '../../../assets/img/pizza.jpg'
+import { type Pizza } from '../../../types'
 
-const PizzaItem = (): ReactElement => {
+interface PizzaItemProps {
+  pizza: Pizza
+}
+
+const PizzaItem: FC<PizzaItemProps> = ({ pizza }): ReactElement => {
   return (
     <li className="pizza__item">
       <img className="pizza__image" src={PizzaPng} alt=""/>
-      <p className="pizza__name">Чизбургер-пицца</p>
+      <p className="pizza__name">{pizza.name}</p>
       <div className="pizza__options">
         <ul className="pizza__crust">
           <li>тонкое</li>
