@@ -7,6 +7,7 @@ interface Pizza {
   name: string
   price: number
   ingredients: Ingredient[]
+  image_url: string
 }
 
 export type { Pizza }
