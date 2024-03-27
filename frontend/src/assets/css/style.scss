@@ -7,19 +7,19 @@ $background-secondary: #fafafa;
 @font-face {
   font-family: 'Nunito Regular';
 
-  src: url('#{$font-path}/Nunito-Regular.ttf') format('woff2');
+  src: url('#{$font-path}/Nunito-Regular.ttf') format('truetupe');
 }
 
 @font-face {
   font-family: 'Nunito Bold';
 
-  src: url('#{$font-path}/Nunito-Bold.ttf') format('woff2');
+  src: url('#{$font-path}/Nunito-Bold.ttf') format('truetupe');
 }
 
 @font-face {
   font-family: 'Nunito Black';
 
-  src: url('#{$font-path}/Nunito-Black.ttf') format('woff2');
+  src: url('#{$font-path}/Nunito-Black.ttf') format('truetupe');
 }
 
 
