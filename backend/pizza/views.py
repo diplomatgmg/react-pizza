@@ -5,10 +5,5 @@ from .serializers import PizzaSerializer
 
 
 class PizzaListAPIView(generics.ListAPIView):
-    queryset = Pizza.objects.all()
-    serializer_class = PizzaSerializer
-
-
-class PizzaDetailAPIView(generics.RetrieveAPIView):
-    queryset = Pizza.objects.all()
+    queryset = Pizza.objects.all().prefetch_related('ingredients')
     serializer_class = PizzaSerializer
