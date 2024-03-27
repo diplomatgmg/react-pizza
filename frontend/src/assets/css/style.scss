@@ -69,6 +69,11 @@ a {
 
 // HEADER
 
+.header {
+  overflow-x: auto;
+  scrollbar-color: #000 $background;
+}
+
 .logo {
   display: flex;
 
@@ -79,14 +84,14 @@ a {
 
   &__title {
     font-family: 'Nunito Black', sans-serif;
-    font-size: 24px;
+    font-size: 2rem;
 
+    white-space: nowrap;
     text-transform: uppercase;
   }
 
   &__description {
-    white-space: nowrap;
-
+    min-width: 33%;
     color: #7b7b7b;
   }
 }
@@ -265,7 +270,7 @@ a {
   }
 
   &__item {
-    font-size: 12px;
+    font-size: 1rem;
 
     padding: 12px 24px;
 
@@ -277,7 +282,7 @@ a {
 
 
     &.active {
-      font-size: 14px;
+      font-size: 1rem;
       font-weight: bold;
 
       color: $orange;
@@ -308,11 +313,11 @@ a {
 
     &__title {
       font-family: 'Nunito Bold', sans-serif;
-      font-size: 32px;
+      font-size: 3rem;
     }
 
     &__description {
-      font-size: 20px;
+      font-size: 2rem;
 
       margin-top: 8px;
 
@@ -325,16 +330,18 @@ a {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
   }
 
   &__item {
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
+    padding: 12px 24px;
 
-    margin: 24px;
-    padding: 12px;
+    width: 350px;
+    margin: 24px 12px;
 
     transition: linear 100ms;
 
@@ -347,15 +354,24 @@ a {
   }
 
   &__image {
-    width: 300px;
+    max-width: 100%;
+    max-height: 100%;
+
     margin-bottom: 12px;
   }
 
   &__name {
     font-family: 'Nunito Black', sans-serif;
-    font-size: 22px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 12px 0;
+    text-align: center;
+  }
 
-    margin-bottom: 32px;
+  &__ingredients {
+    margin: 12px 12px 24px;
+    text-align: center;
+    font-size: 1rem;
   }
 
   &__options {
@@ -363,6 +379,7 @@ a {
     flex-direction: column;
 
     height: 100px;
+    width: 100%;
     padding: 8px;
 
     border-radius: 12px;
@@ -375,8 +392,10 @@ a {
   &__size {
     display: flex;
     align-items: center;
-
+    font-size: 1rem;
     height: 50%;
+
+    width: 100%;
 
     white-space: nowrap;
 
@@ -385,7 +404,7 @@ a {
 
     li {
       width: 100%;
-      padding: 12px 24px;
+      padding: 14px 0;
 
       cursor: pointer;
       transition: linear 100ms;
@@ -415,9 +434,10 @@ a {
 
   &__price {
     font-family: 'Nunito Bold', sans-serif;
-    font-size: 22px;
+    font-size: 1.5rem;
 
     margin-left: 12px;
+    white-space: nowrap;
   }
 
   &__cart {
