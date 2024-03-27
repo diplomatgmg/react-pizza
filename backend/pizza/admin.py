@@ -10,11 +10,11 @@ class IngredientAdmin(admin.ModelAdmin):
 
 @admin.register(Pizza)
 class PizzaAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'display_ingredients')
+    list_display = ('name', 'price',)
     search_fields = ('name',)
     filter_horizontal = ('ingredients',)
+    ordering = ('id',)
 
-    def display_ingredients(self, obj):
-        return ", ".join([ingredient.name for ingredient in obj.ingredients.all()])
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('ingredients')
 
-    display_ingredients.short_description = 'Ingredients'
