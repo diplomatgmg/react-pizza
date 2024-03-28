@@ -1,5 +1,3 @@
-./wait-for-it.sh database:5432 -- echo "Database is ready"
-
 python manage.py migrate
 
 python manage.py loaddata __fixtures__/user.json
