@@ -5,7 +5,7 @@ services:
       - ./backend:/opt/project/backend
     ports:
       - "8000:8000"
-    command: "./startup.sh"
+    command: sh -c "chmod +x startup.sh && ./startup.sh"
     environment:
       - DB_HOST=database
       - DB_NAME=dbname
@@ -19,11 +19,12 @@ services:
       context: ./frontend
     volumes:
       - ./frontend:/opt/project/frontend
+      - /opt/project/frontend/node_modules
     environment:
       - WATCHPACK_POLLING=true
     ports:
       - "3000:3000"
-    command: "npm start"
+    command: sh -c "npm start"
 
   database:
     image: postgres:16.2-alpine
