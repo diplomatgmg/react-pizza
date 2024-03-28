@@ -4,4 +4,6 @@ import { type AppDispatch, type RootState } from './store'
 const useAppDispatch = (): AppDispatch => useDispatch<AppDispatch>()
 const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
-export { useAppDispatch, useAppSelector }
+const useSearchParams = (): RootState['searchParams'] => useAppSelector(state => state.searchParams)
+
+export { useAppDispatch, useAppSelector, useSearchParams }

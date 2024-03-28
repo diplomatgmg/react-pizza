@@ -10,4 +10,9 @@ interface Pizza {
   image_url: string
 }
 
-export type { Pizza }
+interface PizzaResponse {
+  results: Pizza[]
+  total_pages: number
+}
+
+export type { Pizza, PizzaResponse }

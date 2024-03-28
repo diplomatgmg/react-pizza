@@ -49,7 +49,8 @@ MIDDLEWARE = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
-    ]
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'pizza.pagination.CustomPagination',
 }
 
 CORS_ALLOW_ALL_ORIGINS = True

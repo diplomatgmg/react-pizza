@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { type Pizza } from '../types'
+import { type PizzaResponse } from '../types'
+import { type SearchParams } from './searchParamsSlice'
 
 const api = createApi({
   reducerPath: 'api',
@@ -7,8 +8,11 @@ const api = createApi({
     baseUrl: 'http://localhost:8000/api'
   }),
   endpoints: (build) => ({
-    getPizzas: build.query<Pizza[], unknown>({
-      query: () => 'pizzas/'
+    getPizzas: build.query<PizzaResponse, SearchParams>({
+      query: (params) => ({
+        url: 'pizzas/',
+        params
+      })
     })
   })
 })

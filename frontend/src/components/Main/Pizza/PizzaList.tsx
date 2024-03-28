@@ -2,17 +2,25 @@ import React, { type ReactElement } from 'react'
 import PizzaItem from './PizzaItem'
 import { useGetPizzasQuery } from '../../../redux/api'
 import PizzaItemSkeleton from './PizzaItemSkeleton'
+import { useSearchParams } from '../../../redux/hooks'
 
 const PizzaList = (): ReactElement => {
   const {
-    data = [],
+    data,
     isLoading
-  } = useGetPizzasQuery({})
+  } = useGetPizzasQuery(useSearchParams())
+
+  if (isLoading || data === undefined) {
+    return (
+      <ul className="pizza__list">
+        {isLoading && [...Array(3)].map((_, index) => <PizzaItemSkeleton key={index}/>)}
+      </ul>
+    )
+  }
 
   return (
     <ul className="pizza__list">
-      {isLoading && [...Array(6)].map((_, index) => <PizzaItemSkeleton key={index}/>)}
-      {!isLoading && data.map((pizza) => <PizzaItem key={pizza.id} pizza={pizza}/>)}
+       { data.results.map((pizza) => <PizzaItem key={pizza.id} pizza={pizza}/>)}
     </ul>
   )
 }
