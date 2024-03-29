@@ -214,17 +214,16 @@ a {
     background-color: $background;
   }
 
+
   &__item.active,
   &__item:hover {
     background-color: #282828;
-
-    a {
-      color: #fff;
-    }
+    color: #fff;
   }
 
-  a {
-    color: #000;
+  &__skeleton:hover {
+    background: $background;
+    cursor: default;
   }
 }
 
@@ -354,7 +353,6 @@ a {
       box-shadow: 0 0 10px 10px rgba(0, 0, 0, .12);
     }
   }
-
 
 
   &__image {
@@ -581,7 +579,6 @@ a {
 
     border: none;
   }
-
 
 
   &__item.active,

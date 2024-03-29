@@ -15,4 +15,9 @@ interface PizzaResponse {
   total_pages: number
 }
 
-export type { Pizza, PizzaResponse }
+interface Category {
+  id: number
+  name: string
+}
+
+export type { Pizza, PizzaResponse, Category }

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { type PizzaResponse } from '../types'
+import { type Category, type PizzaResponse } from '../types'
 import { type SearchParams } from './searchParamsSlice'
 
 const api = createApi({
@@ -13,12 +13,16 @@ const api = createApi({
         url: 'pizzas/',
         params
       })
+    }),
+    getCategories: build.query<Category[], unknown>({
+      query: () => 'categories/'
     })
   })
 })
 
 export const {
-  useGetPizzasQuery
+  useGetPizzasQuery,
+  useGetCategoriesQuery
 } = api
 
 export default api
