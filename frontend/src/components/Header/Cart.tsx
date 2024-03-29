@@ -3,16 +3,16 @@ import CartSvg from '../../assets/svg/cart.svg'
 
 const Cart = (): ReactElement => {
   return (
-    <div className="cart">
-      <div className="cart__total">
+    <a className="header-cart" href='/cart'>
+      <div className="header-cart__total">
         <b>1240</b> ₽
       </div>
-      <span className="cart__delimiter"></span>
-      <div className="cart__info">
-        <img className="cart__icon" src={CartSvg} alt=""/>
-        <p className="cart__quantity">3</p>
+      <span className="header-cart__delimiter"></span>
+      <div className="header-cart__info">
+        <img className="header-cart__icon" src={CartSvg} alt=""/>
+        <p className="header-cart__quantity">3</p>
       </div>
-    </div>
+    </a>
   )
 }
 
