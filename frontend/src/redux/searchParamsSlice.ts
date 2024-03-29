@@ -1,13 +1,10 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-
-interface SearchParams {
-  page: number
-  category: string
-}
+import { type OrderingFields, type SearchParams } from '../types'
 
 const initialState: SearchParams = {
   page: 1,
-  category: 'все'
+  category: 'все',
+  ordering: ''
 }
 
 const searchParamsSlice = createSlice({
@@ -19,13 +16,17 @@ const searchParamsSlice = createSlice({
     },
     setCategory (state, action: PayloadAction<string>) {
       state.category = action.payload
+    },
+    setOrdering (state, action: PayloadAction<OrderingFields>) {
+      state.ordering = action.payload
     }
   }
 })
 
 export const {
   setPage,
-  setCategory
+  setCategory,
+  setOrdering
 } = searchParamsSlice.actions
 
 export default searchParamsSlice.reducer

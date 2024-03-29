@@ -4,14 +4,15 @@ import clsx from 'clsx'
 interface SortItemProps {
   text: string
   isActive?: boolean
+  handleSetOrdering: () => void
 }
 
-const SortItem: FC<SortItemProps> = ({ text, isActive }): ReactElement => {
+const SortItem: FC<SortItemProps> = ({ text, isActive, handleSetOrdering }): ReactElement => {
   const className = clsx('sort__item', {
     active: isActive
   })
 
-  return <li className={className}>{text}</li>
+  return <li className={className} onClick={handleSetOrdering}>{text}</li>
 }
 
 export default SortItem
