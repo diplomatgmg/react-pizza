@@ -5,13 +5,13 @@ from .models import Ingredient, Pizza, Category
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
-        fields = ['name']
+        fields = ["name"]
 
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'name']
+        fields = ["id", "name"]
 
 
 class PizzaSerializer(serializers.ModelSerializer):
@@ -19,4 +19,4 @@ class PizzaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Pizza
-        fields = ['id', 'name', 'price', 'ingredients', 'image_url']
+        fields = ["id", "name", "price", "ingredients", "image_url"]
