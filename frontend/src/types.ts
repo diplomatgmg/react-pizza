@@ -31,6 +31,7 @@ interface SearchParams {
   page: number
   category: string
   ordering: OrderingFields
+  name: string
 }
 
 export type { Pizza, PizzaResponse, Category, OrderingFields, SearchParams }

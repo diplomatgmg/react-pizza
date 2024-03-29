@@ -4,7 +4,8 @@ import { type OrderingFields, type SearchParams } from '../types'
 const initialState: SearchParams = {
   page: 1,
   category: 'все',
-  ordering: ''
+  ordering: '',
+  name: ''
 }
 
 const searchParamsSlice = createSlice({
@@ -19,6 +20,9 @@ const searchParamsSlice = createSlice({
     },
     setOrdering (state, action: PayloadAction<OrderingFields>) {
       state.ordering = action.payload
+    },
+    setName (state, action: PayloadAction<string>) {
+      state.name = action.payload
     }
   }
 })
@@ -26,7 +30,8 @@ const searchParamsSlice = createSlice({
 export const {
   setPage,
   setCategory,
-  setOrdering
+  setOrdering,
+  setName
 } = searchParamsSlice.actions
 
 export default searchParamsSlice.reducer

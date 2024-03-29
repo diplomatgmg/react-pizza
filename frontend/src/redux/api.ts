@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { type Category, type PizzaResponse } from '../types'
-import { type SearchParams } from './searchParamsSlice'
+import { type Category, type PizzaResponse, type SearchParams } from '../types'
 
 const api = createApi({
   reducerPath: 'api',

@@ -4,7 +4,6 @@ import PizzaList from './Pizza/PizzaList'
 const Main = (): ReactElement => {
   return (
     <main className="main">
-      {/* <Error /> */}
       <div className='pizza'>
         <PizzaList/>
       </div>
