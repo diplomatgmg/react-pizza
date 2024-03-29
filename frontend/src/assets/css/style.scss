@@ -330,6 +330,7 @@ a {
 .pizza {
   &__list {
     display: grid;
+    justify-items: center;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
   }
@@ -339,6 +340,8 @@ a {
     overflow: hidden;
     align-items: center;
     flex-direction: column;
+
+    max-width: 400px;
 
     margin: 24px 12px;
     padding: 12px 24px;
