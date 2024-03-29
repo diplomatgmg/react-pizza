@@ -1,4 +1,5 @@
-from rest_framework import generics
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import generics, filters
 
 from .filters import PizzaFilter
 from .models import Pizza, Category
@@ -11,6 +12,9 @@ class PizzaListAPIView(generics.ListAPIView):
     serializer_class = PizzaSerializer
     pagination_class = PizzaPagination
     filterset_class = PizzaFilter
+    filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
+
+    ordering_fields = ["name", "price"]
 
 
 class CategoryListAPIView(generics.ListAPIView):
