@@ -18,6 +18,7 @@ const SortList: FC<SortListProps> = ({ handleCloseModal }): ReactElement => {
 
   return (
     <ul className="sort__list">
+      <SortItem text={'умолчанию'} handleSetOrdering={() => handleSetOrdering('')}></SortItem>
       <SortItem text={'цене ↓'} handleSetOrdering={() => handleSetOrdering('price')}></SortItem>
       <SortItem text={'цене ↑'} handleSetOrdering={() => handleSetOrdering('-price')}></SortItem>
       <SortItem text={'алфавиту ↓'} handleSetOrdering={() => handleSetOrdering('name')}></SortItem>

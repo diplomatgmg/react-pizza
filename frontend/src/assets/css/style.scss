@@ -247,6 +247,8 @@ a {
     cursor: pointer;
     transition: linear 200ms;
 
+    white-space: nowrap;
+
     color: $orange;
     border-bottom: 1px dashed $orange;
 
