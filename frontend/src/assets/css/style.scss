@@ -329,9 +329,9 @@ a {
 
 .pizza {
   &__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
   }
 
   &__item {
@@ -340,7 +340,6 @@ a {
     align-items: center;
     flex-direction: column;
 
-    width: 20%;
     margin: 24px 12px;
     padding: 12px 24px;
 
@@ -434,7 +433,7 @@ a {
   &__details {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
     width: 100%;
     margin-top: 24px;
@@ -443,8 +442,6 @@ a {
   &__price {
     font-family: 'Nunito Bold', sans-serif;
     font-size: 1.5rem;
-
-    margin-left: 12px;
 
     white-space: nowrap;
   }
@@ -455,7 +452,6 @@ a {
     display: flex;
     align-items: center;
 
-    margin-right: 12px;
     padding: 12px 24px;
 
     cursor: pointer;
@@ -587,6 +583,27 @@ a {
 
     a {
       color: #fff;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1300px) {
+  .pizza {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .pizza {
+    &__details {
+      flex-direction: column;
+    }
+
+    &__price {
+      margin-bottom: 12px;
     }
   }
 }
