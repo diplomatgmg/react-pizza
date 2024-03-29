@@ -20,6 +20,7 @@ class Category(models.Model):
     def clean(self):
         self.name = self.name.lower()
 
+
 class Pizza(models.Model):
     name = models.CharField(max_length=32, unique=True)
     price = models.IntegerField()
