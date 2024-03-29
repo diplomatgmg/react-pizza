@@ -13,7 +13,7 @@ const PizzaList = (): ReactElement => {
   if (isLoading || data === undefined) {
     return (
       <ul className="pizza__list">
-        {isLoading && [...Array(3)].map((_, index) => <PizzaItemSkeleton key={index}/>)}
+        {isLoading && [...Array(4)].map((_, index) => <PizzaItemSkeleton key={index}/>)}
       </ul>
     )
   }
