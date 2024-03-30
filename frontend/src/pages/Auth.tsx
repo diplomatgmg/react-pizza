@@ -1,13 +1,15 @@
 import React, { type ReactElement } from 'react'
 import Header from '../components/Header/Header'
-import AuthComponent from '../components/Auth/Auth'
+import LoginForm from '../components/Auth/LoginForm'
+import RegisterForm from '../components/Auth/RegisterForm'
 
 const Auth = (): ReactElement => {
   return (
     <>
       <Header/>
       <div className="container">
-        <AuthComponent/>
+        <LoginForm />
+        <RegisterForm />
       </div>
     </>
   )
