@@ -678,19 +678,21 @@ a {
   }
 
   &__item-img img {
-    width: 80px;
-    height: 80px;
-    margin-right: 12px;
+    width: 120px;
+    height: 120px;
+    margin-right: 24px;
   }
 
   &__item-info {
     width: 50%;
 
     p:first-of-type {
-      font-size: 22px;
+      font-size: 26px;
       font-weight: bold;
 
       overflow: hidden;
+
+      margin-bottom: 4px;
 
       text-overflow: ellipsis;
     }
