@@ -15,16 +15,16 @@ const PizzaItem = (): ReactElement => {
         <p>тонкое тесто, 26 см.</p>
       </div>
       <div className="cart__item-count">
-        <div className="cart__item-count-btn">
+        <div className="cart__item-count-btn btn">
           <Minus size={10} color={'#EB5A1E'}/>
         </div>
         <div className="cart__item-count-value">3</div>
-        <div className="cart__item-count-btn">
+        <div className="cart__item-count-btn btn">
           <Plus size={10} color={'#EB5A1E'} />
         </div>
       </div>
       <div className="cart__item-price">770 ₽</div>
-      <div className="cart__item-remove">
+      <div className="cart__item-remove btn">
         <Plus size={10} color={'#EB5A1E'}/>
       </div>
     </div>

@@ -29,7 +29,7 @@ const Cart = (): ReactElement => {
               strokeLinejoin="round"></path>
           </svg>
           <p className="cart__title">Корзина</p></div>
-        <div className="cart__clear">
+        <div className="cart__clear btn">
           <Trash size={20} color={'#B6B6B6'} />
           <p className="cart__text">Очистить корзину</p></div>
       </div>

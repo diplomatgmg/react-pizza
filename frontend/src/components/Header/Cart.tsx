@@ -3,7 +3,7 @@ import CartSvg from '../svg/Cart'
 
 const Cart = (): ReactElement => {
   return (
-    <a className="header-cart" href='/cart'>
+    <a className="header-cart btn" href='/cart'>
       <div className="header-cart__total">
         <b>1240</b> ₽
       </div>

@@ -66,6 +66,14 @@ a {
   border-bottom: 1px solid #e3e3e3;
 }
 
+.btn {
+  user-select: none;
+
+  &:active {
+    transform: translateY(-3px);
+  }
+}
+
 
 // HEADER
 
@@ -77,13 +85,16 @@ a {
 
 .logo {
   display: flex;
+
   cursor: pointer;
   text-decoration: none;
+
   color: #000;
 
   svg {
     position: relative;
     top: -4px;
+
     margin-right: 15px;
   }
 
@@ -105,10 +116,11 @@ a {
 .search {
   position: relative;
 
+  width: 100%;
   min-width: 120px;
   max-width: 500px;
   margin: {
-    right: 100px;
+    right: 120px;
     left: 32px;
   };
 
@@ -153,7 +165,7 @@ a {
   padding: 12px 25px;
 
   cursor: pointer;
-  transition: linear 200ms;
+  transition: background-color linear 200ms;
 
   color: #fff;
   border-radius: 32px;
@@ -195,6 +207,7 @@ a {
 .category {
   overflow-x: auto;
 
+  width: 100%;
   margin-right: 12px;
   padding-bottom: 12px;
 
@@ -209,7 +222,8 @@ a {
     padding: 12px 30px;
 
     cursor: pointer;
-    transition: linear 200ms;
+    user-select: none;
+    transition: background-color linear 200ms;
 
     border-radius: 24px;
     background-color: $background;
@@ -218,13 +232,14 @@ a {
 
   &__item.active,
   &__item:hover {
-    background-color: #282828;
     color: #fff;
+    background-color: #282828;
   }
 
   &__skeleton:hover {
-    background: $background;
     cursor: default;
+
+    background: $background;
   }
 }
 
@@ -233,6 +248,7 @@ a {
   position: relative;
 
   display: flex;
+
 
   &__icon {
     margin-right: 8px;
@@ -246,8 +262,8 @@ a {
 
   &__criteria {
     cursor: pointer;
+    user-select: none;
     transition: linear 200ms;
-
     white-space: nowrap;
 
     color: $orange;
@@ -279,11 +295,11 @@ a {
     padding: 12px 24px;
 
     cursor: pointer;
+    user-select: none;
     transition: linear 100ms;
     white-space: nowrap;
 
     border-radius: 8px;
-
 
     &.active {
       font-size: 1rem;
@@ -314,7 +330,6 @@ a {
 
     margin: 100px;
 
-
     &__title {
       font-family: 'Nunito Bold', sans-serif;
       font-size: 3rem;
@@ -333,6 +348,7 @@ a {
 .pizza {
   &__list {
     display: grid;
+
     justify-items: center;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
@@ -345,7 +361,6 @@ a {
     flex-direction: column;
 
     max-width: 400px;
-
     margin: 24px 12px;
     padding: 12px 24px;
 
@@ -378,9 +393,9 @@ a {
   }
 
   &__ingredients {
-    height: 100%;
     font-size: 1rem;
 
+    height: 100%;
     margin: 12px 12px 24px;
 
     text-align: center;
@@ -410,10 +425,10 @@ a {
     width: 100%;
     height: 50%;
 
+    user-select: none;
     white-space: nowrap;
 
     gap: 8px;
-
 
     li {
       width: 100%;
@@ -424,7 +439,6 @@ a {
       text-align: center;
 
       border-radius: 8px;
-
 
       &.active {
         background-color: #fff;
@@ -461,14 +475,13 @@ a {
     padding: 12px 24px;
 
     cursor: pointer;
-    transition: linear 100ms;
+    transition: background-color linear 100ms;
 
     color: $orange;
     border: 1px solid $orange;
     border-radius: 24px;
 
     gap: 12px;
-
 
     & span {
       font-weight: normal;
@@ -596,10 +609,9 @@ a {
 // CART
 
 .cart {
-  margin: 90px auto;
-  max-width: 820px;
   width: 100%;
-
+  max-width: 820px;
+  margin: 90px auto;
 
   &__top {
     display: flex;
@@ -607,28 +619,33 @@ a {
   }
 
   &__title {
-    display: flex;
     font-size: 32px;
 
+    display: flex;
+
     svg {
-      margin-right: 10px;
       width: 30px;
+      margin-right: 10px;
     }
   }
 
   &__clear {
-    cursor: pointer;
     display: flex;
     align-items: center;
+
+    cursor: pointer;
+    transition: background-color linear 100ms;
     white-space: nowrap;
+
     color: #b6b6b6;
-    transition: linear 100ms;
 
     svg {
-      transition: linear 100ms;
       position: relative;
       top: -2px;
+
       margin-right: 10px;
+
+      transition: linear 100ms;
     }
   }
 
@@ -643,6 +660,7 @@ a {
   &__items {
     display: flex;
     flex-direction: column;
+
     margin-top: 64px;
   }
 
@@ -650,6 +668,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     margin-bottom: 24px;
   }
 
@@ -663,9 +682,11 @@ a {
     width: 50%;
 
     p:first-of-type {
-      font-weight: bold;
       font-size: 22px;
+      font-weight: bold;
+
       overflow: hidden;
+
       text-overflow: ellipsis;
     }
 
@@ -680,22 +701,26 @@ a {
   }
 
   &__item-count-btn {
-    transition: linear 100ms;
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-weight: bold;
-    color: $orange;
-    border: 2px solid $orange;
-    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 30px;
     height: 30px;
 
+    cursor: pointer;
+    user-select: none;
+    transition: background-color linear 100ms;
+
+    color: $orange;
+    border: 2px solid $orange;
+    border-radius: 50%;
+
     &:hover {
-      background-color: $orange;
       color: #fff;
+      background-color: $orange;
 
       svg {
         filter: brightness(0) invert(1);
@@ -704,30 +729,37 @@ a {
   }
 
   &__item-count-value {
-    margin: 0 12px;
     font-size: 22px;
     font-weight: bold;
+
+    margin: 0 12px;
   }
 
   &__item-price {
+    font-size: 22px;
+    font-weight: bold;
+
     display: flex;
     justify-content: center;
-    font-weight: bold;
-    font-size: 22px;
-    white-space: nowrap;
+
     width: 20%;
+
+    white-space: nowrap;
   }
 
   &__item-remove {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
     cursor: pointer;
+    transition: background-color linear 100ms;
+    transform: rotate(45deg);
+
     border: 2px solid $orange;
     border-radius: 50%;
-    transform: rotate(45deg);
-    transition: linear 100ms;
-    padding: 10px;
 
     &:hover {
       background-color: $orange;
