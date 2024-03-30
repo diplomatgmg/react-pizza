@@ -78,7 +78,12 @@ a {
 // HEADER
 
 .header {
+  display: flex;
   overflow-x: auto;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
 
   scrollbar-color: #000 $background;
 }
