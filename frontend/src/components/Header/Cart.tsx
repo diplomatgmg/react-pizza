@@ -1,5 +1,5 @@
 import React, { type ReactElement } from 'react'
-import CartSvg from '../../assets/svg/cart.svg'
+import CartSvg from '../svg/Cart'
 
 const Cart = (): ReactElement => {
   return (
@@ -9,7 +9,7 @@ const Cart = (): ReactElement => {
       </div>
       <span className="header-cart__delimiter"></span>
       <div className="header-cart__info">
-        <img className="header-cart__icon" src={CartSvg} alt=""/>
+        <CartSvg color={'#fff'} size={18}/>
         <p className="header-cart__quantity">3</p>
       </div>
     </a>

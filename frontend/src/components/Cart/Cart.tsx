@@ -1,6 +1,6 @@
 import React, { type ReactElement } from 'react'
-import TrashSvg from '../../assets/svg/trash.svg'
 import PizzaList from './PizzaList'
+import Trash from '../svg/Trash'
 
 const Cart = (): ReactElement => {
 
@@ -29,7 +29,8 @@ const Cart = (): ReactElement => {
               strokeLinejoin="round"></path>
           </svg>
           <p className="cart__title">Корзина</p></div>
-        <div className="cart__clear"><img src={TrashSvg} alt=""/>
+        <div className="cart__clear">
+          <Trash size={20} color={'#B6B6B6'} />
           <p className="cart__text">Очистить корзину</p></div>
       </div>
       <PizzaList />
