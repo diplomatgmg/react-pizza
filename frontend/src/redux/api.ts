@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { type Category, type LoginResponse, type PizzaResponse, type SearchParams } from '../types'
+import { type Category, type LoginResponse, type PizzaResponse, type RegisterResponse, type SearchParams } from '../types'
 import { type RootState } from './store'
 
 const api = createApi({
@@ -27,6 +27,13 @@ const api = createApi({
     getCategories: build.query<Category[], unknown>({
       query: () => 'categories/'
     }),
+    register: build.mutation<RegisterResponse, { email: string, password: string, confirm_password: string }>({
+      query: (credentials) => ({
+        url: 'register/',
+        method: 'POST',
+        body: credentials
+      })
+    }),
     login: build.mutation<LoginResponse, { email: string, password: string }>({
       query: (credentials) => ({
         url: 'login/',
@@ -47,6 +54,7 @@ const api = createApi({
 export const {
   useGetPizzasQuery,
   useGetCategoriesQuery,
+  useRegisterMutation,
   useLoginMutation,
   useLogoutMutation
 } = api

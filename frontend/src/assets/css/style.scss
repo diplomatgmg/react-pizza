@@ -798,7 +798,7 @@ button {
   form {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 300px;
   }
 
   input {
@@ -846,6 +846,21 @@ button {
     margin-top: 12px;
 
     color: $orange;
+  }
+
+  &__error, &__success {
+    white-space: nowrap;
+    margin-bottom: 12px;
+    align-self: center;
+    text-align: center;
+  }
+
+  &__error {
+    color: red;
+  }
+
+  &__success {
+    color: green;
   }
 }
 

@@ -42,4 +42,8 @@ interface LoginResponse {
   }
 }
 
-export type { Pizza, PizzaResponse, Category, OrderingFields, SearchParams, LoginResponse }
+interface RegisterResponse {
+  email: string
+}
+
+export type { Pizza, PizzaResponse, Category, OrderingFields, SearchParams, LoginResponse, RegisterResponse }
