@@ -17,7 +17,7 @@ const LoginForm = (): ReactElement => {
   const dispatch = useAppDispatch()
 
   const location = useLocation()
-  const isRegistered: boolean = location.state.isRegistered
+  const isRegistered: boolean = location.state?.isRegistered
 
   const navigate = useNavigate()
 
