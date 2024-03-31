@@ -1,8 +1,8 @@
 import React, { type FC, type ReactElement } from 'react'
 import SortItem from './SortItem'
 import { useAppDispatch } from '../../redux/hooks'
-import { type OrderingFields } from '../../types'
 import { setOrdering } from '../../redux/searchParamsSlice'
+import { type OrderingFields } from '../../@types/searchParams'
 
 interface SortListProps {
   handleCloseModal: () => void

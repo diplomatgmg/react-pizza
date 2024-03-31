@@ -1,6 +1,6 @@
 import React, { type FC, type ReactElement, useState } from 'react'
-import { type Pizza } from '../../../types'
 import _ from 'lodash'
+import { type Pizza } from '../../../@types/types'
 
 interface PizzaItemProps {
   pizza: Pizza

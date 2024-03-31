@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type OrderingFields, type SearchParams } from '../types'
+import { type OrderingFields, type SearchParams } from '../@types/searchParams'
 
 const initialState: SearchParams = {
   page: 1,

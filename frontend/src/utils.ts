@@ -1,4 +1,4 @@
-import { type OrderingFields } from './types'
+import { type OrderingFields } from './@types/searchParams'
 
 const translateOrderingName = (ordering: OrderingFields): string => {
   switch (ordering) {

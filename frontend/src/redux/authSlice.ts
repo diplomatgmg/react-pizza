@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type LoginResponse } from '../types'
+import { type LoginResponse } from '../@types/responses'
 
 interface AuthParams extends LoginResponse {
   isAuthenticated: boolean
