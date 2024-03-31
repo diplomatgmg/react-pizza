@@ -2,7 +2,7 @@ import React, { type FC, type ReactElement } from 'react'
 import Logo from './Logo'
 import Cart from './Cart'
 import Search from './Search'
-import Auth from './LoginLogout'
+import Auth from './AuthButton'
 
 interface HeaderProps {
   isShowSearch?: boolean

@@ -6,13 +6,16 @@ import './assets/fonts/Nunito-Regular.ttf'
 import './assets/fonts/Nunito-Bold.ttf'
 import './assets/fonts/Nunito-Black.ttf'
 import { Provider } from 'react-redux'
-import store from './redux/store'
+import store, { persistor } from './redux/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as Element
 )
 root.render(
   <Provider store={store}>
-    <App/>
+    <PersistGate persistor={persistor}>
+      <App/>
+    </PersistGate>
   </Provider>
 )

@@ -34,4 +34,12 @@ interface SearchParams {
   name: string
 }
 
-export type { Pizza, PizzaResponse, Category, OrderingFields, SearchParams }
+interface LoginResponse {
+  email: string
+  tokens: {
+    refresh: string
+    access: string
+  }
+}
+
+export type { Pizza, PizzaResponse, Category, OrderingFields, SearchParams, LoginResponse }
