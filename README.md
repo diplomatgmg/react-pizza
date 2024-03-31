@@ -1,4 +1,4 @@
-![Preview](https://github.com/diplomatgmg/react-pizza/blob/main/frontend/public/preview.jpg?raw=true)
+![Preview](https://github.com/diplomatgmg/react-pizza/blob/main/preview.png?raw=true)
 
 # [DEPLOY](https://react-pizza-chi-eight.vercel.app/) <span style="font-size: 14px">(Не работает без Docker)</span>
 
