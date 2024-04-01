@@ -34,8 +34,9 @@ INSTALLED_APPS = [
     "django_filters",
     "corsheaders",
     "debug_toolbar",
-    "pizza",
-    "accounts",
+    "apps.pizza",
+    "apps.accounts",
+    "apps.cart",
 ]
 
 

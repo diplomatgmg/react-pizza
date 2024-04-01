@@ -1,6 +1,8 @@
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     volumes:
       - ./backend:/opt/project/backend
     ports:
@@ -17,6 +19,7 @@ services:
   frontend:
     build:
       context: ./frontend
+      dockerfile: Dockerfile
     volumes:
       - ./frontend:/opt/project/frontend
       - /opt/project/frontend/node_modules
