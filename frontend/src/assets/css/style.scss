@@ -743,9 +743,9 @@ button {
     font-weight: bold;
 
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
 
     width: 20%;
 
@@ -753,7 +753,8 @@ button {
 
     p:first-of-type {
       font-size: 12px;
-      color: #7b7b7b
+
+      color: #7b7b7b;
     }
   }
 
@@ -786,8 +787,10 @@ button {
 
   &__empty {
     font-size: 48px;
-    margin-top: 128px;
     font-weight: bold;
+
+    margin-top: 128px;
+
     text-align: center;
   }
 }
