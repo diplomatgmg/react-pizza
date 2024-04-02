@@ -75,13 +75,8 @@ class CartDetailAPIView(APIView):
             return Response(serializer.data)
 
         pizza = self.get_pizza(pizza_id_or_all)
-
-        if not pizza:
-            return Response(
-                {"error": "Pizza not found"}, status=status.HTTP_404_NOT_FOUND
-            )
-
         cart = self.get_cart(request.user)
+
         try:
             cart_item = CartItem.objects.get(cart=cart, pizza=pizza)
             cart_item.delete()
@@ -94,13 +89,8 @@ class CartDetailAPIView(APIView):
     def patch(self, request):
         pizza_id = request.data.get("pizza")
         pizza = self.get_pizza(pizza_id)
-
-        if not pizza:
-            return Response(
-                {"error": "Pizza not found"}, status=status.HTTP_404_NOT_FOUND
-            )
-
         cart = self.get_cart(request.user)
+
         self.decrease_cart_item_quantity(cart, pizza)
 
         serializer = CartSerializer(cart)
