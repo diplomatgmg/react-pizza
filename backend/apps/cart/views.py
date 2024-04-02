@@ -66,8 +66,15 @@ class CartDetailAPIView(APIView):
         return Response(serializer.data)
 
     def delete(self, request):
-        pizza_id = request.data.get("pizza")
-        pizza = self.get_pizza(pizza_id)
+        pizza_id_or_all = request.data.get("pizza", "all")
+        cart = self.get_cart(request.user)
+        serializer = CartSerializer(cart)
+
+        if pizza_id_or_all == "all":
+            CartItem.objects.filter(cart=cart).delete()
+            return Response(serializer.data)
+
+        pizza = self.get_pizza(pizza_id_or_all)
 
         if not pizza:
             return Response(
