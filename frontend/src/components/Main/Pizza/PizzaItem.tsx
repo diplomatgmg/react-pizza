@@ -1,6 +1,7 @@
 import React, { type FC, type ReactElement, useState } from 'react'
 import _ from 'lodash'
 import { type Pizza } from '../../../@types/types'
+import { useAddCartItemMutation } from '../../../redux/api'
 
 interface PizzaItemProps {
   pizza: Pizza
@@ -12,6 +13,12 @@ type PizzaSize = 26 | 30 | 40
 const PizzaItem: FC<PizzaItemProps> = ({ pizza }): ReactElement => {
   const [pizzaCrust, setPizzaCrust] = useState<PizzaCrust>('thin')
   const [pizzaSize, setPizzaSize] = useState<PizzaSize>(26)
+
+  const [addCartItem] = useAddCartItemMutation()
+
+  const handleAddToCart = (): void => {
+    void addCartItem({ pizza: pizza.id })
+  }
 
   const ingredients = pizza.ingredients.map(ingredient => ingredient.name).join(', ')
 
@@ -57,7 +64,7 @@ const PizzaItem: FC<PizzaItemProps> = ({ pizza }): ReactElement => {
               d="M5.75998 5.92001L3.83998 5.92001L0.959977 5.92001C0.429817 5.92001 -2.29533e-05 5.49017 -2.29301e-05 4.96001C-2.2907e-05 4.42985 0.429817 4.00001 0.959977 4.00001L3.83998 4L5.75998 4.00001L8.63998 4.00001C9.17014 4.00001 9.59998 4.42985 9.59998 4.96001C9.59998 5.49017 9.17014 5.92001 8.63998 5.92001L5.75998 5.92001Z"
               fill="#EB5A1E"/>
           </svg>
-          <p>Добавить</p>
+          <p onClick={handleAddToCart}>Добавить</p>
           {/* <span>2</span> */}
         </div>
       </div>

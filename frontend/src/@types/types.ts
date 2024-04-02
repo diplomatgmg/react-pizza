@@ -15,4 +15,10 @@ interface Category {
   name: string
 }
 
-export type { Ingredient, Pizza, Category }
+interface CartItem {
+  id: number
+  pizza: Pizza
+  quantity: number
+}
+
+export type { Ingredient, Pizza, Category, CartItem }

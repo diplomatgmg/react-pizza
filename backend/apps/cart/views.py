@@ -62,3 +62,29 @@ class CartDetailAPIView(APIView):
 
         serializer = CartSerializer(cart)
         return Response(serializer.data)
+
+    def patch(self, request):
+        cart = self.get_cart(request.user)
+        pizza_id = request.data.get("pizza")
+
+        try:
+            pizza = Pizza.objects.get(pk=pizza_id)
+        except Pizza.DoesNotExist:
+            return Response(
+                {"error": "Pizza not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+        try:
+            cart_item = CartItem.objects.get(cart=cart, pizza=pizza)
+            if cart_item.quantity > 1:
+                cart_item.quantity -= 1
+                cart_item.save()
+            else:
+                cart_item.delete()
+        except CartItem.DoesNotExist:
+            return Response(
+                {"error": "Item not found in cart"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = CartSerializer(cart)
+        return Response(serializer.data)

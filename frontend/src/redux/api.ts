@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { type RootState } from './store'
-import { type LoginResponse, type PizzaResponse, type RegisterResponse } from '../@types/responses'
+import { type CartResponse, type LoginResponse, type PizzaResponse, type RegisterResponse } from '../@types/responses'
 import { type SearchParams } from '../@types/searchParams'
 import { type Category } from '../@types/types'
 
@@ -18,25 +18,25 @@ const api = createApi({
       return headers
     }
   }),
+  tagTypes: ['Cart'],
   endpoints: (build) => ({
     getPizzas: build.query<PizzaResponse, SearchParams>({
       query: (params) => ({
         url: 'pizzas/',
         params
-      }),
-      keepUnusedDataFor: 1
+      })
     }),
     getCategories: build.query<Category[], unknown>({
       query: () => 'categories/'
     }),
-    register: build.mutation<RegisterResponse, { email: string, password: string, confirm_password: string }>({
+    register: build.mutation<RegisterResponse, { email: string, password: string, confirm_password: string }>({ // TODO
       query: (credentials) => ({
         url: 'register/',
         method: 'POST',
         body: credentials
       })
     }),
-    login: build.mutation<LoginResponse, { email: string, password: string }>({
+    login: build.mutation<LoginResponse, { email: string, password: string }>({ // TODO
       query: (credentials) => ({
         url: 'login/',
         method: 'POST',
@@ -48,8 +48,38 @@ const api = createApi({
         url: 'logout/',
         method: 'POST',
         body: credentials
-      })
+      }),
+      invalidatesTags: ['Cart']
+    }),
+    getCart: build.query<CartResponse, unknown>({
+      query: () => 'cart/',
+      providesTags: ['Cart']
+    }),
+    addCartItem: build.mutation<unknown, { pizza: number }>({
+      query: (body) => ({
+        url: 'cart/',
+        method: 'POST',
+        body
+      }),
+      invalidatesTags: ['Cart']
+    }),
+    decreaseCartItem: build.mutation<unknown, { pizza: number }>({
+      query: (body) => ({
+        url: 'cart/',
+        method: 'PATCH',
+        body
+      }),
+      invalidatesTags: ['Cart']
+    }),
+    deleteCartItem: build.mutation({
+      query: (body) => ({
+        url: 'cart/',
+        method: 'DELETE',
+        body
+      }),
+      invalidatesTags: ['Cart']
     })
+
   })
 })
 
@@ -58,7 +88,11 @@ export const {
   useGetCategoriesQuery,
   useRegisterMutation,
   useLoginMutation,
-  useLogoutMutation
+  useLogoutMutation,
+  useGetCartQuery,
+  useAddCartItemMutation,
+  useDecreaseCartItemMutation,
+  useDeleteCartItemMutation
 } = api
 
 export default api

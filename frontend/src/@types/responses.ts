@@ -1,4 +1,4 @@
-import { type Pizza } from './types'
+import { type CartItem, type Pizza } from './types'
 
 interface PizzaResponse {
   results: Pizza[]
@@ -17,4 +17,8 @@ interface RegisterResponse {
   email: string
 }
 
-export type { PizzaResponse, LoginResponse, RegisterResponse }
+interface CartResponse {
+  items: CartItem[]
+}
+
+export type { PizzaResponse, LoginResponse, RegisterResponse, CartResponse }
