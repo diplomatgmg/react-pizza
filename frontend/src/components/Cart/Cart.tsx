@@ -1,9 +1,15 @@
 import React, { type ReactElement } from 'react'
 import PizzaList from './PizzaList'
 import Trash from '../svg/Trash'
-import { useDeleteCartItemMutation } from '../../redux/api'
+import { useDeleteCartItemMutation, useGetCartQuery } from '../../redux/api'
 
 const Cart = (): ReactElement => {
+  const {
+    data
+  } = useGetCartQuery({})
+
+  const isCartEmpty = data?.items.length === 0
+
   const [deleteCartItem] = useDeleteCartItemMutation()
 
   const handleClearCart = (): void => {
@@ -34,12 +40,17 @@ const Cart = (): ReactElement => {
               strokeLinecap="round"
               strokeLinejoin="round"></path>
           </svg>
-          <p className="cart__title">Корзина</p></div>
-        <div className="cart__clear btn" onClick={handleClearCart}>
-          <Trash size={20} color={'#B6B6B6'} />
-          <p className="cart__text">Очистить корзину</p></div>
+          <p className="cart__title">Корзина</p>
+        </div>
+        {!isCartEmpty && (
+          <div className="cart__clear btn" onClick={handleClearCart}>
+            <Trash size={20} color={'#B6B6B6'}/>
+            <p className="cart__text">Очистить корзину</p>
+          </div>
+        )}
       </div>
-      <PizzaList />
+      {isCartEmpty && <p className="cart__empty">Корзина пуста!</p>}
+      <PizzaList/>
     </div>
   )
 }

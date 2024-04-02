@@ -783,6 +783,13 @@ button {
       width: 12px;
     }
   }
+
+  &__empty {
+    font-size: 48px;
+    margin-top: 128px;
+    font-weight: bold;
+    text-align: center;
+  }
 }
 
 // AUTH
