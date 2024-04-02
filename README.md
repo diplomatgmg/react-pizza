@@ -1,3 +1,10 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/bb7977ca1ad2520734fa/maintainability)](https://codeclimate.com/github/diplomatgmg/react-pizza/maintainability)
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/diplomatgmg/react-pizza)
+
+
+
+
 ![Preview](https://github.com/diplomatgmg/react-pizza/blob/main/preview.png?raw=true)
 
 # [DEPLOY](https://react-pizza-chi-eight.vercel.app/) <span style="font-size: 14px">(Не работает без Docker)</span>
