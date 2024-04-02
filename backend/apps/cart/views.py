@@ -13,67 +13,28 @@ class CartDetailAPIView(APIView):
     permission_classes = (IsAuthenticated,)
     authentication_classes = (JWTAuthentication,)
 
-    def get_cart(self, user):
-        cart, created = Cart.objects.get_or_create(user=user)
-        return cart
+    @staticmethod
+    def get_cart(user):
+        return Cart.objects.get_or_create(user=user)[0]
 
-    def get(self, request):
-        cart = self.get_cart(request.user)
-        serializer = CartSerializer(cart)
-        return Response(serializer.data)
-
-    def post(self, request):
-        cart = self.get_cart(request.user)
-        pizza_id = request.data.get("pizza")
-
+    @staticmethod
+    def get_pizza(pizza_id):
         try:
-            pizza = Pizza.objects.get(pk=pizza_id)
+            return Pizza.objects.get(pk=pizza_id)
         except Pizza.DoesNotExist:
-            return Response(
-                {"error": "Pizza not found"}, status=status.HTTP_404_NOT_FOUND
-            )
+            return None
 
-        cart_item, created = CartItem.objects.get_or_create(cart=cart, pizza=pizza)
-        if not created:
-            cart_item.quantity += 1
-            cart_item.save()
-
-        serializer = CartSerializer(cart)
-        return Response(serializer.data)
-
-    def delete(self, request):
-        cart = self.get_cart(request.user)
-        pizza_id = request.data.get("pizza")
-
-        try:
-            pizza = Pizza.objects.get(pk=pizza_id)
-        except Pizza.DoesNotExist:
-            return Response(
-                {"error": "Pizza not found"}, status=status.HTTP_404_NOT_FOUND
-            )
-
+    @staticmethod
+    def update_cart_item_quantity(cart, pizza):
         try:
             cart_item = CartItem.objects.get(cart=cart, pizza=pizza)
-            cart_item.delete()
+            cart_item.quantity += 1
+            cart_item.save()
         except CartItem.DoesNotExist:
-            return Response(
-                {"error": "Item not found in cart"}, status=status.HTTP_404_NOT_FOUND
-            )
+            CartItem.objects.create(cart=cart, pizza=pizza)
 
-        serializer = CartSerializer(cart)
-        return Response(serializer.data)
-
-    def patch(self, request):
-        cart = self.get_cart(request.user)
-        pizza_id = request.data.get("pizza")
-
-        try:
-            pizza = Pizza.objects.get(pk=pizza_id)
-        except Pizza.DoesNotExist:
-            return Response(
-                {"error": "Pizza not found"}, status=status.HTTP_404_NOT_FOUND
-            )
-
+    @staticmethod
+    def decrease_cart_item_quantity(cart, pizza):
         try:
             cart_item = CartItem.objects.get(cart=cart, pizza=pizza)
             if cart_item.quantity > 1:
@@ -82,9 +43,58 @@ class CartDetailAPIView(APIView):
             else:
                 cart_item.delete()
         except CartItem.DoesNotExist:
+            pass
+
+    def get(self, request):
+        cart = self.get_cart(request.user)
+        serializer = CartSerializer(cart)
+        return Response(serializer.data)
+
+    def post(self, request):
+        pizza_id = request.data.get("pizza")
+        pizza = self.get_pizza(pizza_id)
+
+        if not pizza:
             return Response(
-                {"error": "Item not found in cart"}, status=status.HTTP_404_NOT_FOUND
+                {"error": "Pizza not found"}, status=status.HTTP_404_NOT_FOUND
             )
+
+        cart = self.get_cart(request.user)
+        self.update_cart_item_quantity(cart, pizza)
+
+        serializer = CartSerializer(cart)
+        return Response(serializer.data)
+
+    def delete(self, request):
+        pizza_id = request.data.get("pizza")
+        pizza = self.get_pizza(pizza_id)
+
+        if not pizza:
+            return Response(
+                {"error": "Pizza not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+        cart = self.get_cart(request.user)
+        try:
+            cart_item = CartItem.objects.get(cart=cart, pizza=pizza)
+            cart_item.delete()
+        except CartItem.DoesNotExist:
+            pass
+
+        serializer = CartSerializer(cart)
+        return Response(serializer.data)
+
+    def patch(self, request):
+        pizza_id = request.data.get("pizza")
+        pizza = self.get_pizza(pizza_id)
+
+        if not pizza:
+            return Response(
+                {"error": "Pizza not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+        cart = self.get_cart(request.user)
+        self.decrease_cart_item_quantity(cart, pizza)
 
         serializer = CartSerializer(cart)
         return Response(serializer.data)
