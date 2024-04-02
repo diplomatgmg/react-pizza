@@ -17,6 +17,11 @@ class PizzaListAPIView(generics.ListAPIView):
     ordering_fields = ["name", "price"]
 
 
+class PizzaDetailAPIView(generics.RetrieveAPIView):
+    queryset = Pizza.objects.all()
+    serializer_class = PizzaSerializer
+
+
 class CategoryListAPIView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
