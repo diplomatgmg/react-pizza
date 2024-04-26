@@ -18,6 +18,8 @@ const PizzaList = (): ReactElement => {
       description={'Нет соединения с бекендом.'}/>
   }
 
+
+
   if (isLoading || data === undefined) {
     return (
       <ul className="pizza__list">
