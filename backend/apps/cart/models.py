@@ -19,3 +19,7 @@ class CartItem(models.Model):
 
     class Meta:
         ordering = ["pizza__name"]
+
+
+    def __str__(self):
+        return self.pizza
